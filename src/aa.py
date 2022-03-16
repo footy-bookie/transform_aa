@@ -16,7 +16,8 @@ class AA:
 
     def climbers(self):
         df_germany = pd.read_csv(
-            'gs://{}/germany-bundesliga-teams-2017-to-2021-stats.csv'.format(get_vm_custom_envs("CLIMBER_STORAGE"))
+            'gs://{}/{}/germany-bundesliga-teams-2017-to-2021-stats.csv'.format(get_vm_custom_envs("IMPORT_SINK"),
+                                                                                get_vm_custom_envs("CLIMBER_STORAGE"))
         )
 
         df_bremen = df_germany[df_germany['common_name'] == 'Werder Bremen'].sort_values('season').tail(1)
