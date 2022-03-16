@@ -30,7 +30,6 @@ def read_bigquery(dataset: str, table_name: str):
 def write_data(df: DataFrame):
     storage_client = storage.Client()
     bucket = storage_client.get_bucket(get_vm_custom_envs("SINK"))
-    # bucket = storage_client.get_bucket('dev-footy_aa_sink_dev')
 
     csv_name = "aa-{}.csv".format(str(pd.Timestamp.now()))
     bucket.blob(csv_name).upload_from_string(df.to_csv(header=1, index=0), "text/csv")
