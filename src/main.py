@@ -1,10 +1,9 @@
-from aa import AA
+from aa import run
 
 
 def main():
     print('Starting bookie_clustering_ms')
-    aa = AA()
-    aa.run()
+    run()
     return print('Done with bookie_clustering_ms')
 
 
